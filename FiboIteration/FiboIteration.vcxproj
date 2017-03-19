@@ -22,7 +22,7 @@
     <ProjectGuid>{6081E14A-85F4-40C2-BB5D-60A979651D82}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>FiboIteration</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
