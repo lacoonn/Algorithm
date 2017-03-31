@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FibonacciRecursive", "algorithmTest\algorithmTest.vcxproj", "{98F55CC4-2E35-4916-A15B-B63E604E10E1}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coinRecursion", "coinRecursion\coinRecursion.vcxproj", "{E73115C3-87B5-4BE5-91B1-AC8985FFAF42}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "orderIteration", "orderIteration\orderIteration.vcxproj", "{89E7EF76-3F78-4851-B3B1-0D4A925496B1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reductionOperation", "reductionOperation\reductionOperation.vcxproj", "{8DC84E99-7174-406F-A3D6-A50084D7C494}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,14 @@ Global
 		{89E7EF76-3F78-4851-B3B1-0D4A925496B1}.Release|x64.Build.0 = Release|x64
 		{89E7EF76-3F78-4851-B3B1-0D4A925496B1}.Release|x86.ActiveCfg = Release|Win32
 		{89E7EF76-3F78-4851-B3B1-0D4A925496B1}.Release|x86.Build.0 = Release|Win32
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Debug|x64.ActiveCfg = Debug|x64
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Debug|x64.Build.0 = Debug|x64
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Debug|x86.ActiveCfg = Debug|Win32
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Debug|x86.Build.0 = Debug|Win32
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Release|x64.ActiveCfg = Release|x64
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Release|x64.Build.0 = Release|x64
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Release|x86.ActiveCfg = Release|Win32
+		{8DC84E99-7174-406F-A3D6-A50084D7C494}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
