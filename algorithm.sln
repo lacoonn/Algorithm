@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FibonacciRecursive", "algorithmTest\algorithmTest.vcxproj", "{98F55CC4-2E35-4916-A15B-B63E604E10E1}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "basicIteration", "basicIteration\basicIteration.vcxproj", "{74324D6A-7D75-498B-AD4D-353281717311}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Recursion", "Recursion\Recursion.vcxproj", "{84AAD16E-2661-4522-B72B-2F3D06B295F9}"
@@ -33,14 +31,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Debug|x64.ActiveCfg = Debug|x64
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Debug|x64.Build.0 = Debug|x64
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Debug|x86.ActiveCfg = Debug|Win32
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Debug|x86.Build.0 = Debug|Win32
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Release|x64.ActiveCfg = Release|x64
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Release|x64.Build.0 = Release|x64
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Release|x86.ActiveCfg = Release|Win32
-		{98F55CC4-2E35-4916-A15B-B63E604E10E1}.Release|x86.Build.0 = Release|Win32
 		{74324D6A-7D75-498B-AD4D-353281717311}.Debug|x64.ActiveCfg = Debug|x64
 		{74324D6A-7D75-498B-AD4D-353281717311}.Debug|x64.Build.0 = Debug|x64
 		{74324D6A-7D75-498B-AD4D-353281717311}.Debug|x86.ActiveCfg = Debug|Win32
