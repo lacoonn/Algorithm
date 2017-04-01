@@ -9,11 +9,12 @@ int EE[NUM + 1][NUM + 1][3]; //�Ҹ�����
 int DD[NUM + 1][NUM + 1][3]; //�̵��Ÿ�
 int PP[NUM + 1][NUM + 1][3]; //������ġ
 
-int min(int, int);
+int min(int, int, int *);
 
 int main()
 {
 	int i, j, k;
+	int *lflag, *rflag;
 
 	EE[START][START][1] = 0;
 	EE[START][START][2] = 0;
@@ -32,17 +33,45 @@ int main()
 
 	for (i = 1; i <= NUM; i++) {
 		for (j = i + 1; j <= NUM; j++) {
+			//EE
 			EE[i][j][1] = min(EE[i + 1][j][1] + (DD[i + 1][j][1] + D[i + 1] - D[i]) * W[i],
-												EE[i + 1][j][2] + (DD[i + 1][j][2] + D[j] - D[i]) * W[i]);
+								EE[i + 1][j][2] + (DD[i + 1][j][2] + D[j] - D[i]) * W[i], lflag);
 			EE[i][j][2] = min(EE[i][j - 1][2] + (DD[i][j - 1][2] + D[j] - D[j - 1]) * W[j],
-												EE[i][j - 1][1] + (DD[i][j - 1][2] + D[j] - D[i]) * W[j]);
-			
+								EE[i][j - 1][1] + (DD[i][j - 1][2] + D[j] - D[i]) * W[j], rflag);
+			//DD
+			if (*lflag == 0)
+				DD[i][j][1] = DD[i + 1][j][1] + D[i + 1] - D[i];
+			else
+				DD[i][j][1] = DD[i + 1][j][2] + D[j] - D[i];
+			if (*rflag == 0)
+				DD[i][j][2] = DD[i][j - 1][2] + D[j] - D[j - 1];
+			else
+				DD[i][j][2] = DD[i][j - 1][1] + D[j] - D[i];
+			//PP
+			if (*lflag == 0)
+				PP[i][j][1] = i + 1;
+			else
+				PP[i][j][1] = j;
+			if (*rflag == 0)
+				PP[i][j][2] = j - 1;
+			else
+				PP[i][j][2] = i;
 		}
 	}
 }
 
-int min(a, b) {
-	if (a <= b)
+int min(int a, int b, int *flag) {
+	if (a <= b) {
+		*flag = 0;
 		return a;
+	}
+	*flag = 1;
 	return b;
 }
+
+/*
+DD[i][j][1] = min(DD[i + 1][j][1] + D[i + 1] - D[i],
+DD[i + 1][j][2] + D[j] - D[i]);
+DD[i][j][2] = min(DD[i][j - 1][2] + D[j] - D[j - 1],
+DD[i][j - 1][1] + D[j] - D[i]);
+*/
