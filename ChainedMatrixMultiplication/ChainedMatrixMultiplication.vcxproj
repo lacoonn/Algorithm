@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{32F41FC3-6DCE-434E-AF3C-8AFA53367381}</ProjectGuid>
+    <ProjectGuid>{A93214C7-B3B0-453E-AF0C-21E6BC063F93}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>streetLight</RootNamespace>
+    <RootNamespace>ChainedMatrixMultiplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
-    <ProjectName>Streetlight</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Streetlight.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
+    <ClCompile Include="ChainedMatrixMultiplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

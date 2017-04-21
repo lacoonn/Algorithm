@@ -1,0 +1,7 @@
+Watt : 370
+Prev Position : 5
+Prev Position : 4
+Prev Position : 3
+Prev Position : 2
+Prev Position : 6
+Prev Position : 1
