@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "basicIteration", "basicIteration\basicIteration.vcxproj", "{74324D6A-7D75-498B-AD4D-353281717311}"
 EndProject
@@ -21,9 +21,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "orderIteration", "orderIter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reductionOperation", "reductionOperation\reductionOperation.vcxproj", "{8DC84E99-7174-406F-A3D6-A50084D7C494}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "streetLight", "streetLight\streetLight.vcxproj", "{32F41FC3-6DCE-434E-AF3C-8AFA53367381}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Streetlight", "streetLight\streetLight.vcxproj", "{32F41FC3-6DCE-434E-AF3C-8AFA53367381}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChainedMatrixMultiplication", "ChainedMatrixMultiplication\ChainedMatrixMultiplication.vcxproj", "{A93214C7-B3B0-453E-AF0C-21E6BC063F93}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MakeMaze", "MakeMaze\MakeMaze.vcxproj", "{8BB60BC1-011C-43E9-876D-AC4F4341C77B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +123,14 @@ Global
 		{A93214C7-B3B0-453E-AF0C-21E6BC063F93}.Release|x64.Build.0 = Release|x64
 		{A93214C7-B3B0-453E-AF0C-21E6BC063F93}.Release|x86.ActiveCfg = Release|Win32
 		{A93214C7-B3B0-453E-AF0C-21E6BC063F93}.Release|x86.Build.0 = Release|Win32
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Debug|x64.ActiveCfg = Debug|x64
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Debug|x64.Build.0 = Debug|x64
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Debug|x86.ActiveCfg = Debug|Win32
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Debug|x86.Build.0 = Debug|Win32
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Release|x64.ActiveCfg = Release|x64
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Release|x64.Build.0 = Release|x64
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Release|x86.ActiveCfg = Release|Win32
+		{8BB60BC1-011C-43E9-876D-AC4F4341C77B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -136,21 +136,25 @@ void printPP(int i, int j, int flag) {
 	int temp;
 
 	if (i == j) {
-		outStream << "Prev Position : " << i << '\n';
+		outStream << i << '\n';
 		return;
 	}
 	if (flag == 0) { // L
-		PP[i][j][1];
-		min(EE[i + 1][j][1], EE[i + 1][j][2], temp);
-		printPP(i + 1, j, temp);
+		temp = PP[i][j][1];
+		if (temp == i + 1)
+			printPP(i + 1, j, 0);
+		else
+			printPP(i + 1, j, 1);
 	}
 	else { // R
-		PP[i][j][2];
-		min(EE[i][j - 1][1], EE[i][j - 1][2], temp);
-		printPP(i, j - 1, temp);
+		temp = PP[i][j][2];
+		if (temp == i)
+			printPP(i, j - 1, 0);
+		else
+			printPP(i, j - 1, 1);
 	}
 
-	outStream << "Prev Position : " << (flag == 0 ? i : j) << '\n';
+	outStream << (flag == 0 ? i : j) << '\n';
 }
 
 

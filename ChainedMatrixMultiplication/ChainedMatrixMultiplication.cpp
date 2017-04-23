@@ -86,7 +86,7 @@ void getMin(int left, int right, int *d, int **M, int **P) {
 void printOrder(int i, int j, int ** P)
 {
 	if (i == j)
-		outStream << ' ' << i;
+		outStream  << i << ' ';
 	else {
 		int k = P[i][j];
 		outStream << "( ";
