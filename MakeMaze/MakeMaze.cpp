@@ -65,7 +65,7 @@ int main()
 	makePath(n, M, T, L);
 	outStream << L[n - 1][n - 1] << endl;
 
-	/*
+	
 	//print Touch
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -84,7 +84,7 @@ int main()
 		}
 		outStream << endl;
 	}
-	/*
+	
 	cdn temp_cdn = { n - 1, n - 1 };
 	getPath(n, T, temp_cdn);
 

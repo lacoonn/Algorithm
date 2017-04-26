@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <limits>
 
 using namespace std;
 
@@ -48,21 +49,16 @@ int main()
 		inStream >> W[i];
 	}
 	
-
-	EE[start][start][1] = 0;
-	EE[start][start][2] = 0;
-
 	for (i = 1; i <= num; i++) {
-		if (i != start) {
-			EE[i][i][1] = 9999;
-			EE[i][i][2] = 9999;
-		}
+		EE[i][i][1] = 99999999;
+		EE[i][i][2] = 99999999;
 		DD[i][i][1] = 0;
 		DD[i][i][2] = 0;
 		PP[i][i][1] = 0;
 		PP[i][i][2] = 0;
-
 	}
+	EE[start][start][1] = 0;
+	EE[start][start][2] = 0;
 
 	for (k = 1; k <= num; k++) {
 		for (i = 1; i + k <= num; i++) {
@@ -82,7 +78,7 @@ int main()
 
 			//Right
 			EE[i][j][2] = min(EE[i][j - 1][2] + (DD[i][j - 1][2] + D[j] - D[j - 1]) * W[j],
-				EE[i][j - 1][1] + (DD[i][j - 1][2] + D[j] - D[i]) * W[j], flag);
+								EE[i][j - 1][1] + (DD[i][j - 1][1] + D[j] - D[i]) * W[j], flag);
 			if (flag == 0)
 				DD[i][j][2] = DD[i][j - 1][2] + D[j] - D[j - 1];
 			else
@@ -92,13 +88,11 @@ int main()
 			else
 				PP[i][j][2] = i;
 
-			printf("EE[%d][%d][1] = %d, EE[%d][%d][2] = %d\n", i, j, EE[i][j][1], i, j, EE[i][j][2]);
+			//printf("EE[%d][%d][1] = %d, EE[%d][%d][2] = %d\n", i, j, EE[i][j][1], i, j, EE[i][j][2]);
 		}
 	}
 	int temp = min(EE[1][num][1], EE[1][num][2], flag);
-	outStream << "Watt : " << temp << '\n';
-	//printf("Watt : %d\n", min(EE[1][num][1], EE[1][num][2], &lflag));
-	//printf("Prev Position : %d\n", lflag == 0 ? 1 : num);
+	outStream << temp << '\n';
 	printPP(1, num, flag);
 
 	// delete array
@@ -137,6 +131,7 @@ void printPP(int i, int j, int flag) {
 
 	if (i == j) {
 		outStream << i << '\n';
+		//outStream << i << ' ' << i << ' ' << j << ' ' << flag << '\n';
 		return;
 	}
 	if (flag == 0) { // L
@@ -155,33 +150,5 @@ void printPP(int i, int j, int flag) {
 	}
 
 	outStream << (flag == 0 ? i : j) << '\n';
+	//outStream << (flag == 0 ? i : j) << ' ' << i << ' ' << j << ' ' << flag << '\n';
 }
-
-
-/*
-void printPP(int i, int j, int flag) {
-	int temp;
-
-	if (i == j) {
-		outStream << "Prev Position : " << i << '\n';
-		return;
-	}
-	if (flag == 0) { // L
-		min(EE[i + 1][j][1], EE[i + 1][j][2], &temp);
-		printPP(i + 1, j, temp);
-	}
-	else { // R
-		min(EE[i][j - 1][1], EE[i][j - 1][2], &temp);
-		printPP(i, j - 1, temp);
-	}
-	
-	outStream << "Prev Position : " << (flag == 0 ? i : j) << '\n';
-}
-*/
-
-/*
-DD[i][j][1] = min(DD[i + 1][j][1] + D[i + 1] - D[i],
-DD[i + 1][j][2] + D[j] - D[i]);
-DD[i][j][2] = min(DD[i][j - 1][2] + D[j] - D[j - 1],
-DD[i][j - 1][1] + D[j] - D[i]);
-*/
