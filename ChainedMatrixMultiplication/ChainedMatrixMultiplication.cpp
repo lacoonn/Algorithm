@@ -16,6 +16,7 @@ int main()
 	string inputFile;
 	cout << "input file name? ";
 	cin >> inputFile;
+	
 	ifstream inStream(inputFile);
 	
 
@@ -30,7 +31,6 @@ int main()
 
 	for (int i = 0; i < n; i++) {
 		inStream >> d[i];
-		cout << d[i] << ' ';
 	}
 
 	minMult(n, d, M, P);

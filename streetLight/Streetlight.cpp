@@ -2,14 +2,15 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <limits>
+
+#define MAX 99999999
 
 using namespace std;
 
-int *W, *D, ***EE, ***DD, ***PP;
+long long *W, *D, ***EE, ***DD, ***PP;
 ofstream outStream("output.txt");
 
-int min(int, int, int &);
+long long min(long long, long long, int &);
 void printPP(int i, int j, int flag);
 
 int main()
@@ -26,21 +27,21 @@ int main()
 	inStream >> num;
 	inStream >> start;
 
-	W = new int[num + 1];
-	D = new int[num + 1];
-	EE = new int**[num + 1];
-	DD = new int**[num + 1];
-	PP = new int**[num + 1];
+	W = new long long[num + 1];
+	D = new long long[num + 1];
+	EE = new long long**[num + 1];
+	DD = new long long**[num + 1];
+	PP = new long long**[num + 1];
 	for (i = 0; i < num + 1; i++) {
-		EE[i] = new int*[num + 1];
-		DD[i] = new int*[num + 1];
-		PP[i] = new int*[num + 1];
+		EE[i] = new long long*[num + 1];
+		DD[i] = new long long*[num + 1];
+		PP[i] = new long long*[num + 1];
 	}
 	for (i = 0; i < num + 1; i++) {
 		for (j = 0; j < num + 1; j++) {
-			EE[i][j] = new int[3];
-			DD[i][j] = new int[3];
-			PP[i][j] = new int[3];
+			EE[i][j] = new long long[3];
+			DD[i][j] = new long long[3];
+			PP[i][j] = new long long[3];
 		}
 	}
 
@@ -50,8 +51,8 @@ int main()
 	}
 	
 	for (i = 1; i <= num; i++) {
-		EE[i][i][1] = 99999999;
-		EE[i][i][2] = 99999999;
+		EE[i][i][1] = MAX;
+		EE[i][i][2] = MAX;
 		DD[i][i][1] = 0;
 		DD[i][i][2] = 0;
 		PP[i][i][1] = 0;
@@ -91,7 +92,7 @@ int main()
 			//printf("EE[%d][%d][1] = %d, EE[%d][%d][2] = %d\n", i, j, EE[i][j][1], i, j, EE[i][j][2]);
 		}
 	}
-	int temp = min(EE[1][num][1], EE[1][num][2], flag);
+	long long temp = min(EE[1][num][1], EE[1][num][2], flag);
 	outStream << temp << '\n';
 	printPP(1, num, flag);
 
@@ -117,17 +118,21 @@ int main()
 	return 0;
 }
 
-int min(int a, int b, int &flag) {
-	if (a <= b) {
+long long min(long long a, long long b, int &flag) {
+	if (a <= b || b < 0) { // 자료형 최대를 넘겨 음수가 될 경우를 방지
+		if(b < 0)
+			cout << "OVER data type\n";
 		flag = 0;
 		return a;
 	}
+	if (a < 0)
+		cout << "OVER data type\n";
 	flag = 1;
 	return b;
 }
 
 void printPP(int i, int j, int flag) {
-	int temp;
+	long long temp;
 
 	if (i == j) {
 		outStream << i << '\n';
