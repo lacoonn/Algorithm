@@ -15,13 +15,13 @@ using namespace std;
 
 ifstream fsin;
 ofstream fsout;
+bool isFinish = false;
 
 int main()
 {
 	cout << "Input File Name? ";
 	string InputFileName;
 	cin >> InputFileName;
-	cout << InputFileName << endl;
 
 	fsin.open(InputFileName, ifstream::in);
 	fsout.open("output.txt", ofstream::out);
@@ -29,7 +29,6 @@ int main()
 	int col[MAX_ARY];
 	int size;
 	fsin >> size;
-	cout << size << endl;
 	NQueen(col, size, 0);
 
 
@@ -38,13 +37,14 @@ int main()
 
 void NQueen(int col[], int size, int index)
 {
-	
-	if (isPromising(col, size, index)) {
+
+	if (isPromising(col, size, index) && !isFinish) {
 		if (index == size) {
 			// col[1] ~ col[n] Ãâ·Â
 			for (int i = 1; i <= size; i++) {
 				fsout << col[i] << endl;
 			}
+			isFinish = true;
 		}
 		else {
 			for (int j = 1; j <= size; j++) {

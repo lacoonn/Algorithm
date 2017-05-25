@@ -47,7 +47,10 @@ int main()
 		// size - 5 까지 promising 할 경우에만 NQueen 함수 실행
 		if (promising) {
 			cout << "Random Complete" << endl;
-			NQueen(col, size, size - 5);
+			if(size - 5 > 0)
+				NQueen(col, size, size - 5);
+			else
+				NQueen(col, size, 0);
 		}
 	}
 
