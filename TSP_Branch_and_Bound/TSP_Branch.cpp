@@ -1,4 +1,4 @@
-// TSP Problem with Branch-and-Bound
+ï»¿// TSP Problem with Branch-and-Bound
 
 #include <iostream>
 #include <fstream>
@@ -42,27 +42,23 @@ public :
 
 	void LastTwo()
 	{
-		//inPath(i, v.path, 0, v.level)
+		// ê°€ëŠ¥í•œ ëª¨ë“  ë…¸ë“œì— ëŒ€í•´ì„œ
 		for (int k = 1; k <= n; k++) {
-			
 			bool inPath = false;
+			// pathì— ìˆëŠ”ì§€ ì—†ëŠ”ì§€ ê²€ì‚¬
 			for (int i = 0; i < level; i++) {
 				if (k == path[i]) {
 					inPath = true;
 					break;
 				}
 			}
+			// ì—†ìœ¼ë©´ ë°˜ë³µë¬¸ì—ì„œ ë¹ ì ¸ë‚˜ì™€ì„œ pathì— ì¶”ê°€
 			if (inPath == false) {
 				path[level] = k;
 				break;
 			}
-			
-			/*
-			if (!inPath(k, path, 0, level - 1)) {
-				path[level] = k;
-			}
-			*/
 		}
+		// ë§ˆì§€ë§‰ìœ¼ë¡œ 1ë¡œ ë³µê·€
 		path[level + 1] = 1;
 		level = n;
 	}
@@ -96,7 +92,7 @@ int main()
 		for (int j = 1; j <= n; j++) {
 			int temp;
 			fsin >> temp;
-			if (temp == 0)
+			if (i == j)
 				W[i][j] = U_LIMIT;
 			else
 				W[i][j] = temp;
@@ -125,33 +121,35 @@ void TSP()
 	while (!PQ.empty()) {
 		v = PQ.top();
 		PQ.pop();
-		cout << "bound: " << v.bound << endl;
+		//cout << "bound: " << v.bound << endl;
 		if (v.bound < minlength) {
 			Node u;
 			u.level = v.level + 1;
 			if (u.level == n - 1) {
-				setTour(u.path, v.path); // ¿©±â°¡ ¹®Á¦
-				u.LastTwo(); // add(³ª¸ÓÁö 1°³) & 1 to u.path -> level + 1, level + 2 ÇØ°á
+				setTour(u.path, v.path); // ì—¬ê¸°ê°€ ë¬¸ì œ
+				u.LastTwo(); // add(ë‚˜ë¨¸ì§€ 1ê°œ) & 1 to u.path -> level + 1, level + 2 í•´ê²°
 				if (length(u) < minlength) {
 					minlength = length(u);
 					setTour(opttour, u.path);
-					return;
+					//return;
 				}
 			}
 			else {
-				for (int i = 2; i <= n; i++) // && i ¡ô v.path do ÇØ°á
+				for (int i = 2; i <= n; i++) // && i âˆˆ v.path do í•´ê²°
 				{
 					if (!inPath(i, v.path, 0, v.level)) {
 						setTour(u.path, v.path);
-						u.path[u.level] = i; // add i to u path ÇØ°á
+						u.path[u.level] = i; // add i to u path í•´ê²°
 						u.bound = bound(u);
-						// ¿À·ù È®ÀÎ
-						cout << '\t' << u.bound << endl;
+						// ì˜¤ë¥˜ í™•ì¸
+						//cout << '\t' << u.bound << endl;
 						for (int j = 0; j <= n; j++) {
-							cout << '\t' << u.path[j] << '\t';
+							//cout << '\t' << u.path[j] << '\t';
 						}
-						cout << endl;
-						// ¿À·ù È®ÀÎ
+						//cout << endl;
+						// ì˜¤ë¥˜ í™•ì¸
+						if (PQ.size() % 10000 == 0)
+							cout << PQ.size() << endl;
 						if (u.bound < minlength)
 							PQ.push(u);
 					}
@@ -164,10 +162,10 @@ void TSP()
 int bound(Node &v)
 {
 	int bound = 0;
-	bound += length(v); // ¹Ù¿îµå¿¡ ÇöÀç±îÁö ÀÌµ¿ÇÑ ³ëµå±îÁöÀÇ edge¸¦ ´õÇÔ
-	for (int i = 1; i <= n; i++) { // ¸ğµç ³ëµå¿¡ ´ëÇØ¼­
-		if (!inPath(i, v.path, 0, v.level - 1)) { // Áö±İ±îÁö Ãâ¹ßÇÑ ³ëµåÁß¿¡ ¾øÀ¸¸é
-			bound += getMin(W[i], n); // ±× ³ëµå¿¡¼­ Ãâ¹ßÇÏ´Â edge Áß °¡Àå ÀÛÀº °ªÀ» ¹Ù¿îµå¿¡ ´õÇÔ
+	bound += length(v); // ë°”ìš´ë“œì— í˜„ì¬ê¹Œì§€ ì´ë™í•œ ë…¸ë“œê¹Œì§€ì˜ edgeë¥¼ ë”í•¨
+	for (int i = 1; i <= n; i++) { // ëª¨ë“  ë…¸ë“œì— ëŒ€í•´ì„œ
+		if (!inPath(i, v.path, 0, v.level - 1)) { // ì§€ê¸ˆê¹Œì§€ ì¶œë°œí•œ ë…¸ë“œì¤‘ì— ì—†ìœ¼ë©´
+			bound += getMin(W[i], n); // ê·¸ ë…¸ë“œì—ì„œ ì¶œë°œí•˜ëŠ” edge ì¤‘ ê°€ì¥ ì‘ì€ ê°’ì„ ë°”ìš´ë“œì— ë”í•¨
 		}
 	}
 	return bound;
@@ -178,8 +176,8 @@ int bound(Node &v)
 int bound(Node &v)
 {
 	int bound = 0;
-	bound += length(v); // ¹Ù¿îµå¿¡ ÇöÀç±îÁö ÀÌµ¿ÇÑ ³ëµå±îÁöÀÇ edge¸¦ ´õÇÔ
-	cout << bound << '+' << endl;
+	bound += length(v); // ë°”ìš´ë“œì— í˜„ì¬ê¹Œì§€ ì´ë™í•œ ë…¸ë“œê¹Œì§€ì˜ edgeë¥¼ ë”í•¨
+	//cout << bound << '+' << endl;
 
 	int ary[MAX_ARY][MAX_ARY] = { U_LIMIT, };
 	for (int i = 1; i <= n; i++) {
@@ -192,27 +190,27 @@ int bound(Node &v)
 	for (int i = 0, j = 1; j <= v.level; i++, j++) {
 		int a = v.path[i];
 		int b = v.path[j];
-		ary[b][a] = U_LIMIT; // ´Ù½Ã µ¹¾Æ¿À´Â °æ¿ì
+		ary[b][a] = U_LIMIT; // ë‹¤ì‹œ ëŒì•„ì˜¤ëŠ” ê²½ìš°
 		for (int j = 1; j <= n; j++) {
 			ary[a][j] = U_LIMIT;
-		} // °¡·Î
+		} // ê°€ë¡œ
 		for (int j = 1; j <= n; j++) {
 			ary[j][b] = U_LIMIT;
-		} // °¡·Î
+		} // ê°€ë¡œ
 	}
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= n; j++) {
-			cout << ary[i][j] << '\t';
+			//cout << ary[i][j] << '\t';
 		}
-		cout << endl;
+		//cout << endl;
 	}
-	for (int i = 1; i <= n; i++) { // ¸ğµç ³ëµå¿¡ ´ëÇØ¼­
-		if (!inPath(i, v.path, 0, v.level - 1)) { // Áö±İ±îÁö Ãâ¹ßÇÑ ³ëµåÁß¿¡ ¾øÀ¸¸é
-			bound += getMin(ary[i], n); // ±× ³ëµå¿¡¼­ Ãâ¹ßÇÏ´Â edge Áß °¡Àå ÀÛÀº °ªÀ» ¹Ù¿îµå¿¡ ´õÇÔ
-			cout << getMin(W[i], n) << '+';
+	for (int i = 1; i <= n; i++) { // ëª¨ë“  ë…¸ë“œì— ëŒ€í•´ì„œ
+		if (!inPath(i, v.path, 0, v.level - 1)) { // ì§€ê¸ˆê¹Œì§€ ì¶œë°œí•œ ë…¸ë“œì¤‘ì— ì—†ìœ¼ë©´
+			bound += getMin(ary[i], n); // ê·¸ ë…¸ë“œì—ì„œ ì¶œë°œí•˜ëŠ” edge ì¤‘ ê°€ì¥ ì‘ì€ ê°’ì„ ë°”ìš´ë“œì— ë”í•¨
+			//cout << getMin(W[i], n) << '+';
 		}
 	}
-	cout << endl;
+	//cout << endl;
 
 	return bound;
 }

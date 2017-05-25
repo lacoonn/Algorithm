@@ -90,6 +90,20 @@ bool isPromising(int i, int profit, int weight)
 			bound = bound + p[j];
 			j++;
 		}
+		//d
+		int k = j;
+		if (k <= n) {
+			bound = bound + (W - totalweight) * p[k] / w[k];
+
+			if (bound > maxprofit)
+				return true;
+			else
+				return false;
+		}
+		else {
+			return false;
+		}
+		//d
 	}
 	return promising;
 }
